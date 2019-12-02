@@ -5,7 +5,7 @@ var screen_size
 
 func _ready():
 	screen_size = get_viewport_rect().size
-	$CollisionShape2D.connect("bo",self,"on_body_entered")
+	self.connect("body_entered",self,"on_body_entered")
 	
 func _process(delta):
 	var velocity = Vector2()  # The player's movement vector.
@@ -19,9 +19,13 @@ func _process(delta):
 		velocity.y -= 1
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * move_speed
+		self.move(velocity,delta)
 		$AnimatedSprite.play()
 	else:
 		$AnimatedSprite.stop()
+	
+		
+func move(velocity,delta):
 	position += velocity * delta
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
@@ -33,13 +37,13 @@ func _process(delta):
 		$AnimatedSprite.animation = "up"
 		$AnimatedSprite.flip_v = velocity.y > 0
 	
-func on_body_entered():
+func on_body_entered(body):
 	hide()  # Player disappears after being hit.
 	emit_signal("hit")
 	$CollisionShape2D.set_deferred("disabled", true)
 
 func start(pos):
 	position = pos
-	#show()
+	show()
 	$CollisionShape2D.disabled = false
 	

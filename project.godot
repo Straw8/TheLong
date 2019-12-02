@@ -16,14 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="FirstProject"
-run/main_scene="res://Player.tscn"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
 [display]
 
 window/size/width=480
 window/size/height=720
-window/dpi/allow_hidpi=true
 
 [locale]
 
