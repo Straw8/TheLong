@@ -32,7 +32,8 @@ height = 22.7793
 
 [node name="Mob" type="RigidBody2D"]
 position = Vector2( 158.941, 120.373 )
-collision_mask = 0
+collision_layer = 4
+collision_mask = 2
 gravity_scale = 0.0
 script = ExtResource( 1 )
 __meta__ = {
@@ -43,10 +44,11 @@ __meta__ = {
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 1 )
 animation = "walk"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1.52588e-05, -0.60968 )
+position = Vector2( -1.52588e-005, -0.60968 )
 rotation = 1.5708
 shape = SubResource( 2 )
 

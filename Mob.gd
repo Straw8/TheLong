@@ -6,7 +6,6 @@ signal mob_dead
 var mob_types = ["walk", "swim", "fly"]
 
 func _ready():
-	self.name = ProjectConstant.enemy_name
 	$AnimatedSprite.animation = mob_types[randi() % mob_types.size()]
 	$Visibility.connect("screen_exited",self,"on_screen_exited")
 	

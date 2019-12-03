@@ -3,19 +3,19 @@ extends Area2D
 #signal
 signal hit
 #var
-var move_speed = 400
+var move_speed
 var screen_size
 var is_safe
 
 func _ready():
 	self.init()
+	screen_size = get_viewport_rect().size
 	self.connect("body_entered",self,"on_body_entered")
 	$SafeTimer.connect("timeout",self,"on_SafeTimer_timeout")
 	
 func init():
-	self.name = ProjectConstant.player_name
-	screen_size = get_viewport_rect().size
 	is_safe = false
+	move_speed = 400
 	
 func _process(delta):
 	var velocity = Vector2()  # The player's movement vector.
@@ -49,8 +49,11 @@ func move(velocity,delta):
 		$AnimatedSprite.animation = "up"
 		$AnimatedSprite.flip_v = velocity.y > 0
 	
-func on_body_entered(body):
-	if self.is_safe || body.name != ProjectConstant.enemy_name:
+func on_body_entered(body:PhysicsBody2D):
+	print_debug(self.is_safe)
+	print_debug(body.collision_layer)
+	print_debug(ProjectConstant.food_layer)
+	if self.is_safe or body.collision_layer == ProjectConstant.food_layer:
 		return
 	hide()  # Player disappears after being hit.
 	emit_signal("hit")
@@ -58,8 +61,9 @@ func on_body_entered(body):
 
 func start(pos):
 	position = pos
+	self.init()
 	show()
-	$CollisionShape2D.disabled = false
+	$CollisionShape2D.set_deferred("disabled",false)
 	
 func on_get_food():
 	print_debug("你已经无敌了")

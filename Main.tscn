@@ -42,3 +42,22 @@ editor/display_folded = true
 curve = SubResource( 1 )
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+
+[node name="DebugLabel" type="Label" parent="."]
+margin_left = 1200.0
+margin_top = 20.0
+margin_right = 1250.0
+margin_bottom = 40.0
+text = "1414"
+align = 1
+valign = 1
+
+[node name="Engine_Label" type="Label" parent="."]
+margin_left = 1200.0
+margin_top = 40.0
+margin_right = 1250.0
+margin_bottom = 60.0
+grow_horizontal = 0
+text = "1414"
+align = 1
+valign = 1

@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="FirstProject"
+config/name="活下去"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
@@ -27,6 +27,7 @@ ProjectConstant="*res://ProjectConstant.gd"
 
 window/size/width=1280
 window/size/height=720
+window/size/resizable=false
 
 [input]
 
@@ -39,10 +40,22 @@ window/size/height=720
 "events": [  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="default"
+2d_physics/layer_2="player"
+2d_physics/layer_3="enemy"
+2d_physics/layer_4="food"
+
 [locale]
 
 locale_filter=[ 0, [ "zh" ] ]
 
+[physics]
+
+2d/thread_model=2
+
 [rendering]
 
+threads/thread_model=2
 environment/default_environment="res://default_env.tres"

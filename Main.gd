@@ -14,6 +14,7 @@ var max_count
 
 func _ready():
 	randomize()
+	$Engine_Label.text = "Godot version: " + Engine.get_version_info()["string"]
 	$ScoreTimer.connect("timeout",self,"on_ScoreTimer_timeout")
 	$StartTimer.connect("timeout",self,"on_StartTimer_timeout")
 	$MobTimer.connect("timeout",self,"on_MobTimer_timeout")
@@ -21,6 +22,9 @@ func _ready():
 	self.connect("accelerate",$Player,"on_accelerate")
 	$HUD.connect("start_game",self,"new_game")
 	
+func _process(delta):
+	$DebugLabel.text = "FPS: " + str(Engine.get_frames_per_second())
+		
 func game_over():
 	$ScoreTimer.stop()
 	$MobTimer.stop()
