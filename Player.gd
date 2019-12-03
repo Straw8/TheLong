@@ -1,11 +1,21 @@
 extends Area2D
+
+#signal
 signal hit
-export var move_speed = 400
+#var
+var move_speed = 400
 var screen_size
+var is_safe
 
 func _ready():
-	screen_size = get_viewport_rect().size
+	self.init()
 	self.connect("body_entered",self,"on_body_entered")
+	$SafeTimer.connect("timeout",self,"on_SafeTimer_timeout")
+	
+func init():
+	self.name = ProjectConstant.player_name
+	screen_size = get_viewport_rect().size
+	is_safe = false
 	
 func _process(delta):
 	var velocity = Vector2()  # The player's movement vector.
@@ -23,7 +33,9 @@ func _process(delta):
 		$AnimatedSprite.play()
 	else:
 		$AnimatedSprite.stop()
-	
+
+func on_accelerate():
+	self.move_speed += 50
 		
 func move(velocity,delta):
 	position += velocity * delta
@@ -38,6 +50,8 @@ func move(velocity,delta):
 		$AnimatedSprite.flip_v = velocity.y > 0
 	
 func on_body_entered(body):
+	if self.is_safe || body.name != ProjectConstant.enemy_name:
+		return
 	hide()  # Player disappears after being hit.
 	emit_signal("hit")
 	$CollisionShape2D.set_deferred("disabled", true)
@@ -47,3 +61,12 @@ func start(pos):
 	show()
 	$CollisionShape2D.disabled = false
 	
+func on_get_food():
+	print_debug("ä½ å·²ç»æ— æ•Œäº†")
+	self.is_safe = true
+	$SafeTimer.wait_time = 3
+	$SafeTimer.start()
+
+func on_SafeTimer_timeout():
+	print_debug("æ— æ•Œí ¾í´£í ¾æ¶ˆå¤±äº†")
+	self.is_safe = false

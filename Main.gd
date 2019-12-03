@@ -1,15 +1,16 @@
 extends Node2D
 
-export (GDScript) var ProjectConstant = preload("res://ProjectConstant.gd")
 export (PackedScene) var Mob = preload("res://Mob.tscn")
-
+export (PackedScene) var Safe = preload("res://Safe.tscn")
+#signal
+signal accelerate
+#var
 var score
-#统计当前生成的所有敌人，最多同时产生5个敌人
-var current_count
-
+var current_count	#统计当前生成的所有敌人
 var max_speed
 var min_speed
 var max_count
+
 
 func _ready():
 	randomize()
@@ -17,6 +18,7 @@ func _ready():
 	$StartTimer.connect("timeout",self,"on_StartTimer_timeout")
 	$MobTimer.connect("timeout",self,"on_MobTimer_timeout")
 	$Player.connect("hit",self,"game_over")
+	self.connect("accelerate",$Player,"on_accelerate")
 	$HUD.connect("start_game",self,"new_game")
 	
 func game_over():
@@ -52,7 +54,18 @@ func on_ScoreTimer_timeout():
 		min_speed += score/10*50
 		max_speed += score/10*50
 		max_count += score/10*2
-	
+		emit_signal("accelerate")
+		self.spawn_food()
+
+func spawn_food():
+	var safe = Safe.instance()
+	add_child(safe)
+	var screen_size = get_viewport_rect().size
+	safe.connect("safe",$Player,"on_get_food")
+	safe.position = Vector2(rand_range(100,screen_size.x-100),rand_range(100,screen_size.y-100))
+	$HUD.connect("start_game", safe, "on_start_game")
+	print_debug(safe.position)
+
 func dec_count():
 	current_count -= 1
 	
