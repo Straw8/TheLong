@@ -1,7 +1,8 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Control.gd" type="Script" id=1]
-[ext_resource path="res://font/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://中文.tres" type="DynamicFont" id=2]
+[ext_resource path="res://font/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://font/Xolonium-Regular.ttf"
@@ -10,13 +11,9 @@ font_path = "res://font/Xolonium-Regular.ttf"
 size = 64
 font_data = SubResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 64
-font_data = ExtResource( 2 )
-
 [sub_resource type="DynamicFont" id=4]
 size = 64
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="InputEventAction" id=5]
 action = "ui_select"
@@ -43,12 +40,12 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 margin_left = 315.0
-margin_top = 208.463
-margin_right = 925.0
-margin_bottom = 367.463
+margin_top = 208.0
+margin_right = 852.0
+margin_bottom = 348.0
 size_flags_vertical = 5
-custom_fonts/font = SubResource( 3 )
-text = "Watch Out Enemy"
+custom_fonts/font = ExtResource( 2 )
+text = "躲避敌人！"
 align = 1
 valign = 1
 autowrap = true
