@@ -66,7 +66,7 @@ func spawn_food():
 	add_child(safe)
 	var screen_size = get_viewport_rect().size
 	safe.connect("safe",$Player,"on_get_food")
-	safe.position = Vector2(rand_range(100,screen_size.x-100),rand_range(100,screen_size.y-100))
+	safe.position = Vector2(rand_range(50,screen_size.x-50),rand_range(50,screen_size.y-50))
 	$HUD.connect("start_game", safe, "on_start_game")
 	print_debug(safe.position)
 

@@ -49,10 +49,7 @@ func move(velocity,delta):
 		$AnimatedSprite.animation = "up"
 		$AnimatedSprite.flip_v = velocity.y > 0
 	
-func on_body_entered(body:PhysicsBody2D):
-	print_debug(self.is_safe)
-	print_debug(body.collision_layer)
-	print_debug(ProjectConstant.food_layer)
+func on_body_entered(body):
 	if self.is_safe or body.collision_layer == ProjectConstant.food_layer:
 		return
 	hide()  # Player disappears after being hit.

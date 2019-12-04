@@ -1,0 +1,10 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[sub_resource type="DynamicFontData" id=1]
+resource_local_to_scene = true
+font_path = "res://font/【暖色君】无心体.ttf"
+
+[resource]
+size = 50
+outline_size = 1
+font_data = SubResource( 1 )
