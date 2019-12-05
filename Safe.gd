@@ -18,11 +18,11 @@ func init():
 func on_ShaderTimer_timeout():
 	$Sprite.visible = !$Sprite.visible
 	
-func on_area_entered(body):
+func on_area_entered(_body):
 	emit_signal("safe")
-	emit_signal("add_safe_score",5)
+	emit_signal("add_safe_score",self.score)
 	$FoodClip.play()
-	queue_free()	
+	queue_free()
 
 func on_start_game():
 	queue_free()

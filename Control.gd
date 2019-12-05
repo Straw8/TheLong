@@ -21,8 +21,9 @@ func on_FlashTimer_timeout():
 	$FlashLabel.visible = !$FlashLabel.visible
 
 func show_flash():
-	$FlashTimer.queue_free()
-	$FlashLabel.queue_free()
+	if $FlashTimer and !$FlashTimer.is_stopped():
+		$FlashLabel.hide()
+		$FlashTimer.stop()
 
 func show_game_over(text):
 	show_message("游戏结束！")

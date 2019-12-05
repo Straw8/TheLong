@@ -5,6 +5,7 @@ export (PackedScene) var Safe = preload("res://Safe.tscn")
 #signal
 signal accelerate
 signal show_flash
+signal clear_enemy
 #var
 var score	#得分
 var current_count	#统计当前生成的所有敌人
@@ -12,7 +13,7 @@ var max_speed
 var min_speed
 var max_count	#最大敌人数量
 var game_time	#游戏时间，根据时间来增加游戏难度
-var has_start
+var has_start	#游戏是否已经开始
 var food_count	#吃到道具数量
 
 func _ready():
@@ -47,6 +48,7 @@ func game_over():
 	$Music.stop()
 	$DeathSound.play()
 	has_start = false
+	emit_signal("clear_enemy")
 
 func new_game():
 	self.init_game()
@@ -120,5 +122,5 @@ func on_MobTimer_timeout():
 	# Set the velocity (speed & direction).
 	mob.linear_velocity = Vector2(rand_range(min_speed, max_speed), 0)
 	mob.linear_velocity = mob.linear_velocity.rotated(direction)
-	$HUD.connect("start_game", mob, "on_start_game")
+	self.connect("clear_enemy", mob, "on_clear_enemy")
 	self.inc_count()

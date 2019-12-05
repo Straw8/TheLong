@@ -13,5 +13,5 @@ func on_screen_exited():
 	emit_signal("mob_dead")
 	queue_free()
 
-func on_start_game():
+func on_clear_enemy():
 	queue_free()
