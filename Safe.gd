@@ -2,6 +2,8 @@ extends Area2D
 
 #signal
 signal safe
+signal add_safe_score
+var score = 5
 
 func _ready():
 	self.init()
@@ -17,8 +19,8 @@ func on_ShaderTimer_timeout():
 	$Sprite.visible = !$Sprite.visible
 	
 func on_area_entered(body):
-	print_debug("碰撞了：",body.collision_mask)
 	emit_signal("safe")
+	emit_signal("add_safe_score",5)
 	$FoodClip.play()
 	queue_free()	
 

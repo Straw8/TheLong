@@ -63,11 +63,11 @@ func start(pos):
 	$CollisionShape2D.set_deferred("disabled",false)
 	
 func on_get_food():
-	print_debug("ä½ å·²ç»æ— æ•Œäº†")
+	$StateLabel.visible = true
 	self.is_safe = true
 	$SafeTimer.wait_time = 3
 	$SafeTimer.start()
 
 func on_SafeTimer_timeout():
-	print_debug("æ— æ•Œí ¾í´£í ¾æ¶ˆå¤±äº†")
+	$StateLabel.visible = false
 	self.is_safe = false

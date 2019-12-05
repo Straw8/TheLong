@@ -20,8 +20,6 @@ visible = false
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.2
 
-[node name="ScoreTimer" type="Timer" parent="."]
-
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
@@ -38,7 +36,6 @@ stream = ExtResource( 4 )
 stream = ExtResource( 5 )
 
 [node name="MobPath" type="Path2D" parent="."]
-editor/display_folded = true
 curve = SubResource( 1 )
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]

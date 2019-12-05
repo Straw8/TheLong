@@ -5,6 +5,8 @@ signal start_game
 func _ready():
 	$StartButton.connect("button_down",self,"on_StartButton_pressed")
 	$MessageTimer.connect("timeout",self,"on_MessageTimer_timeout")
+	$FlashTimer.connect("timeout",self,"on_FlashTimer_timeout")
+	$FlashTimer.start()
 	
 func on_StartButton_pressed():
 	$StartButton.hide()
@@ -14,11 +16,18 @@ func show_message(text):
 	$MessageLabel.text = text
 	$MessageLabel.show()
 	$MessageTimer.start()
-	
-func show_game_over():
-	show_message("Game Over")
+
+func on_FlashTimer_timeout():
+	$FlashLabel.visible = !$FlashLabel.visible
+
+func show_flash():
+	$FlashTimer.queue_free()
+	$FlashLabel.queue_free()
+
+func show_game_over(text):
+	show_message("游戏结束！")
 	yield($MessageTimer, "timeout")
-	$MessageLabel.text = "Be Careful"
+	$MessageLabel.text = text
 	$MessageLabel.show()
 	yield(get_tree().create_timer(1), 'timeout')
 	$StartButton.show()
