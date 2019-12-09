@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://cn_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://bg.tres" type="StyleBox" id=2]
+[ext_resource path="res://yellow_bg.tres" type="StyleBox" id=3]
+[ext_resource path="res://green_ng.tres" type="StyleBox" id=4]
+
+[sub_resource type="DynamicFontData" id=1]
+resource_local_to_scene = true
+font_path = "res://font/【暖色君】无心体.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+outline_size = 1
+font_data = SubResource( 1 )
+
+[node name="Dialog" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -290.0
+margin_top = -160.0
+margin_right = 290.0
+margin_bottom = 160.0
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_right = 580.0
+margin_bottom = 320.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_right = 580.0
+margin_bottom = 62.0
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 1 )
+text = "提示"
+
+[node name="Content" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_top = 66.0
+margin_right = 580.0
+margin_bottom = 103.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+size_flags_stretch_ratio = 4.0
+custom_fonts/font = SubResource( 2 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+margin_top = 258.0
+margin_right = 580.0
+margin_bottom = 320.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+custom_constants/separation = 100
+
+[node name="BtnOk" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+margin_right = 126.0
+margin_bottom = 62.0
+size_flags_horizontal = 3
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = ExtResource( 1 )
+text = "确定"
+
+[node name="BtnCancle" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 226.0
+margin_right = 352.0
+margin_bottom = 62.0
+size_flags_horizontal = 3
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = ExtResource( 1 )
+text = "取消"
+
+[node name="BtnOne" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 452.0
+margin_right = 580.0
+margin_bottom = 62.0
+size_flags_horizontal = 3
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = ExtResource( 1 )
+text = "确定"

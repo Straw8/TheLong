@@ -1,0 +1,197 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://gd/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://cn_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://art/playerGrey_up2.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFontData" id=1]
+resource_local_to_scene = true
+font_path = "res://font/【暖色君】无心体.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 100
+outline_size = 3
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+outline_size = 1
+font_data = SubResource( 1 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 100
+custom_constants/margin_top = 60
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 60
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 100.0
+margin_top = 60.0
+margin_right = 1180.0
+margin_bottom = 660.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 1080.0
+margin_bottom = 123.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_right = 327.0
+margin_bottom = 123.0
+custom_fonts/font = SubResource( 2 )
+text = "活下去"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 127.0
+margin_right = 1080.0
+margin_bottom = 502.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 357.0
+margin_bottom = 375.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+alignment = 1
+
+[node name="BtnStart" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 222.0
+margin_bottom = 104.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 2 )
+text = "开始游戏"
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 114.0
+margin_right = 217.0
+margin_bottom = 182.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 2 )
+text = "记录查看"
+
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 192.0
+margin_right = 222.0
+margin_bottom = 260.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 2 )
+text = "游戏设置"
+
+[node name="BtnQuit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 270.0
+margin_right = 227.0
+margin_bottom = 338.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 2 )
+text = "退出游戏"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 361.0
+margin_right = 718.0
+margin_bottom = 375.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+visible = false
+margin_right = 419.0
+margin_bottom = 62.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.254902, 0.964706, 0.0313726, 1 )
+text = "小提示"
+align = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+visible = false
+margin_right = 419.0
+margin_bottom = 431.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.0
+scroll_vertical_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ScrollContainer"]
+margin_right = 419.0
+margin_bottom = 431.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer"]
+margin_top = 39.0
+margin_right = 419.0
+margin_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 2 )
+text = "避免撞到敌人"
+align = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer"]
+margin_top = 184.0
+margin_right = 419.0
+margin_bottom = 246.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 2 )
+text = "避免撞到敌人"
+align = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer"]
+margin_top = 329.0
+margin_right = 419.0
+margin_bottom = 391.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 2 )
+text = "避免撞到敌人"
+align = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 722.0
+margin_right = 1080.0
+margin_bottom = 375.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Bottom" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 506.0
+margin_right = 1080.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Bottom"]
+margin_left = 285.0
+margin_top = 31.0
+margin_right = 795.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 3 )
+text = "本游戏由@xperformante独立制作，仅供娱乐"
