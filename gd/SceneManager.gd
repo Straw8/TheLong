@@ -36,7 +36,7 @@ func update_progress(progress):
 	var root = get_tree().get_root()
 	var cs = root.get_child(root.get_child_count() -1)
 	cs.get_node("CenterContainer/VBoxContainer/Progress").set_fill_degrees(progress)
-	cs.get_node("CenterContainer/VBoxContainer/Label").text = "正在加载资源请稍后("+str(progress)+"%)"
+	cs.get_node("CenterContainer/VBoxContainer/Label").text = "正在加载资源请稍后("+progress+"%)"
 	# ... or update a progress animation?
 #	var length = get_node("animation").get_current_animation_length()
 	# Call this on a paused animation. Use "true" as the second argument to force the animation to update.

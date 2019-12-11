@@ -145,3 +145,6 @@ func start():
 	sem = Semaphore.new()
 	thread = Thread.new()
 	thread.start(self, "thread_func", 0)
+	
+func _exit_tree():
+	pass
